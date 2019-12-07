@@ -50,6 +50,13 @@ MediaPlayer.OnPreparedListener,
 
     }
 
+    /**
+     * Initialize media player and handle start, pause, and stop states
+     * @param intent
+     * @param flags
+     * @param startId
+     * @return
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
 
@@ -124,6 +131,13 @@ MediaPlayer.OnPreparedListener,
         return false;
     }
 
+    /**
+     * Handle errors for debugging
+     * @param mediaPlayer
+     * @param i
+     * @param i1
+     * @return
+     */
     @Override
     public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
         switch (i){
@@ -145,11 +159,21 @@ MediaPlayer.OnPreparedListener,
 
     }
 
+    /**
+     * onPrepared method plays media stream after PreapreAsync calls and media
+     * player enters prepared state
+     * @param mediaPlayer
+     */
     @Override
     public void onPrepared(MediaPlayer mediaPlayer) {
         playStream();
 
     }
+
+    /**
+     * handle audio focus changes
+     * @param i
+     */
 
     @Override
     public void onAudioFocusChange(int i) {
@@ -202,6 +226,10 @@ MediaPlayer.OnPreparedListener,
         removeAudioFocus();
     }
 
+    /**
+     * Initialize the media player and call PrepareAsync.
+     * set wake lock and wifilock
+     */
     private void initializePlayer(){
         mediaPlayer = new MediaPlayer();
 
@@ -233,6 +261,10 @@ MediaPlayer.OnPreparedListener,
 
     }
 
+    /**
+     * function to play stream
+     */
+
     private void playStream(){
         if (!mediaPlayer.isPlaying()) {
             mediaPlayer.start();
@@ -243,6 +275,9 @@ MediaPlayer.OnPreparedListener,
 
     }
 
+    /**
+     * function to pause stream
+     */
     private void pauseStream(){
         if (mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
@@ -250,6 +285,9 @@ MediaPlayer.OnPreparedListener,
 
     }
 
+    /**
+     * function to stop stream
+     */
     private void stopStream(){
         if (mediaPlayer == null) return;
         if (mediaPlayer.isPlaying()) {
@@ -258,12 +296,22 @@ MediaPlayer.OnPreparedListener,
 
     }
 
+    /**
+     * Resume stream
+     */
+
     private void resumeStream(){
         if (!mediaPlayer.isPlaying()) {
             mediaPlayer.start();
         }
 
     }
+
+    /**
+     * Telephone manager. This will pause the player if there is
+     * an incoming or outgoing call being made. Then resume playing after
+     * the call has ended
+     */
 
     private void callStateListener(){
         // Get the telephony manager

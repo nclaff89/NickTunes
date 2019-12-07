@@ -117,20 +117,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * Function that allows user to change station and displays the name of the
+     * current station for the user.
+     * @param curRadioStation
+     * @return
+     */
+
     private String selectStation(int curRadioStation) {
         String url = null;
         switch (curRadioStation) {
             case 0:
                 url = getString(R.string.radio_station_1);
-                stationName.setText("STATION 1");
+                stationName.setText("METAL STATION");
                 break;
             case 1:
                 url = getString(R.string.radio_station_2);
-                stationName.setText("STATION 2");
+                stationName.setText("MEDITATION STATION");
                 break;
             case 2:
                 url = getString(R.string.radio_station_3);
-                stationName.setText("STATION 3");
+                stationName.setText("JAZZ STATION");
                 break;
             default:
                 url = "";
@@ -179,6 +186,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Disable next/prev button if it is the first or last station in the list.
+     */
     private void disableButtons() {
         prevBtn.setVisibility(currentStation > 0 ? View.VISIBLE : View.GONE);
         nextBtn.setVisibility(currentStation < 2 ? View.VISIBLE : View.GONE);

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">NickTunes</string>
 
-    <string name="radio_station_1">http://wipz.uwp.edu:8000/stream.mp3</string>
-    <string name="radio_station_2">http://liquiddoom.net:8000/dos</string>
-    <string name="radio_station_3">http://173.244.215.162:8020/</string>
+    <string name="radio_station_1">http://69.4.234.186:9100/</string>
+    <string name="radio_station_2">http://173.244.215.162:8040/</string>
+    <string name="radio_station_3">http://mozart.wkar.msu.edu/wkar-jazz</string>
 </resources>
